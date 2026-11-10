@@ -1,0 +1,43 @@
+// ==============================================================================
+// Brain Condition Detector (BCD) SoC - Non-Volatile Memory (NVM) Flash (nvm.hex)
+// Base Address: 0x3000_0000 / 0x6000_0000 (Loaded into axi_slave_nvm via $readmemh)
+// Contains Pre-Trained Edge-AI EEGNet Quantized Neural Network Weights & Biases
+// ==============================================================================
+
+// Model Header (Magic, Architecture, Quantization Parameters)
+4545474e // 0x00: ASCII "EEGN" (EEGNet Model Header)
+00010000 // 0x04: Model Version 1.0
+00000040 // 0x08: Input Channels = 64
+00000080 // 0x0C: Temporal Window Size = 128 samples
+
+// Layer 1: Temporal Convolution Kernel Weights (INT8 packed 4 bytes per word)
+0a08f604 // 0x10: Filter 0, Taps 0-3  (+10, +8, -10, +4)
+02fef806 // 0x14: Filter 0, Taps 4-7  (+2, -2, -8, +6)
+050c0ef2 // 0x18: Filter 1, Taps 0-3  (+5, +12, +14, -14)
+fcf0080a // 0x1C: Filter 1, Taps 4-7  (-4, -16, +8, +10)
+0b09f403 // 0x20: Filter 2, Taps 0-3
+01fff707 // 0x24: Filter 2, Taps 4-7
+040d0ff1 // 0x28: Filter 3, Taps 0-3
+fbf1090b // 0x2C: Filter 3, Taps 4-7
+
+// Layer 2: Depthwise Spatial Filter Weights
+03020104 // 0x30: Spatial Kernel Ch 0-3
+fdfefcfb // 0x34: Spatial Kernel Ch 4-7
+05060407 // 0x38: Spatial Kernel Ch 8-11
+f8f9faf7 // 0x3C: Spatial Kernel Ch 12-15
+
+// Layer 3: Separable Pointwise Weights
+08070906 // 0x40: Pointwise Multipliers
+f6f8f5f9 // 0x44: Pointwise Multipliers
+0a0b0c09 // 0x48: Pointwise Multipliers
+f2f3f4f1 // 0x4C: Pointwise Multipliers
+
+// Layer 4: Dense Classifier Layer (4 Neurological Classes)
+// Classes: 0=Normal, 1=Seizure, 2=Stroke, 3=Artifact
+00000012 // 0x50: Class 0 Normal Bias
+0000003c // 0x54: Class 1 Seizure Bias (High Activation Baseline)
+00000010 // 0x58: Class 2 Stroke Asymmetry Bias
+00000008 // 0x5C: Class 3 Artifact Bias
+
+// Integrity Checksum Word
+5a5a5a5a // 0x60: Model Checksum Sentinel

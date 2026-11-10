@@ -1,0 +1,35 @@
+// ==============================================================================
+// Brain Condition Detector (BCD) SoC - System SRAM Memory Load File (sram.mem)
+// Base Address: 0x1000_0000 (Loaded into axi_slave_sram via $readmemh)
+// Pre-loaded with Baseline Clinical Calibration Data & Ring Buffer Headers
+// ==============================================================================
+
+// Header & Patient Metadata
+50415431 // 0x00: ASCII "PAT1" (Patient 1 Identifier)
+00000040 // 0x04: 64 Active Electrodes (10-20 Standard Montage)
+000000FA // 0x08: Sampling Rate = 250 Hz (4.0 ms interval)
+00000000 // 0x0C: Initial Patient State (0 = Baseline Normal)
+
+// Baseline Calibration Envelopes (Channel 0-7 Alpha Background)
+00120010 // 0x10: Ch 0-1 Normal Peak Amplitude (microvolts)
+00150014 // 0x14: Ch 2-3 Normal Peak Amplitude
+00110013 // 0x18: Ch 4-5 Normal Peak Amplitude
+00160012 // 0x1C: Ch 6-7 Normal Peak Amplitude
+
+// Baseline Frequency Band Distribution (Delta, Theta, Alpha, Beta)
+00000018 // 0x20: Baseline Delta (0.5 - 4 Hz) power percentage: 24%
+00000012 // 0x24: Baseline Theta (4 - 8 Hz) power percentage: 18%
+00000028 // 0x28: Baseline Alpha (8 - 13 Hz) dominant power: 40%
+00000012 // 0x2C: Baseline Beta (13 - 30 Hz) power percentage: 18%
+
+// Circular Ring Buffer Pointers & Control
+10010000 // 0x30: Circular Buffer Head Pointer
+10010000 // 0x34: Circular Buffer Tail Pointer
+00004000 // 0x38: Buffer Capacity: 16,384 samples (65.5 seconds)
+00000000 // 0x3C: Buffer Overflow Status Flag
+
+// Diagnostic Test Patterns for Integration Verification
+a1b2c3d4 // 0x40: Golden Verification Pattern Word 0
+12345678 // 0x44: Golden Verification Pattern Word 1
+87654321 // 0x48: Golden Verification Pattern Word 2
+ffff0000 // 0x4C: Golden Verification Pattern Word 3

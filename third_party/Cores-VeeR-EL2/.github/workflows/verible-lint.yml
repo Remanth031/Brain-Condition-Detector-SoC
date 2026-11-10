@@ -1,0 +1,21 @@
+name: Verible linter
+
+on:
+  pull_request:
+
+jobs:
+  lint-review:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: chipsalliance/verible-linter-action@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reviewdog_reporter: 'local'
+          extra_args: '--waiver_files=./violations.waiver'
+          paths: |
+            ./design

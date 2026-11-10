@@ -1,0 +1,45 @@
+// ==============================================================================
+// Brain Condition Detector (BCD) SoC - Boot ROM Hex Initialization File (boot.hex)
+// Address Range: 0x0000_0000 - 0x0000_03FF (Loaded by axi_slave_rom via $readmemh)
+// Contains RISC-V RV32IMC Bootloader & Firmware Initialization Code
+// ==============================================================================
+
+// @00000000: Boot Header & Identification
+62636431 // 0x00: ASCII "bcd1" Magic Signature
+00000013 // 0x04: nop
+00000093 // 0x08: nop
+cafebabe // 0x0C: Boot Vector Integrity Tag
+
+// @00000010: RISC-V Initialization Routine
+10080137 // 0x10: lui  sp, 0x10080       ; Initialize Stack Pointer sp = 0x1008_0000 (Top of SRAM)
+fff10113 // 0x14: addi sp, sp, -1        ; sp = 0x1007_FFFF
+400202b7 // 0x18: lui  t0, 0x40020       ; t0 = 0x4002_0000 (RTL Threshold Engine Base)
+0012a023 // 0x1C: sw   ra, 0(t0)         ; Enable Threshold Engine auto-wake
+00000888 // 0x20: Data constant          ; Machine Interrupt Enable (MIE) mask
+30002073 // 0x24: csrrw x0, mstatus, t0   ; Enable global machine interrupts
+10500073 // 0x28: wfi                     ; Wait For Interrupt (Sleep in low-power PMU state)
+ff9ff06f // 0x2C: jal   x0, -8            ; Return to WFI loop on wake
+
+// @00000030: BCD Firmware Metadata
+00010000 // 0x30: Firmware Version 1.0.0
+00000040 // 0x34: 64 Active Bio-Potential Channels
+
+// @00000038: Peripheral Configuration Descriptors
+40000000 // 0x38: Base address AFE Deserializer
+40010000 // 0x3C: Base address Digital Filter Bank
+40020000 // 0x40: Base address RTL Threshold Engine
+40050000 // 0x44: Base address Edge-AI NPU Engine
+40060000 // 0x48: Base address Swin Transformer Accelerator
+40080000 // 0x4C: Base address Output Fusion & Telemetry
+
+// @00000050: Default Detection Thresholds
+000008a0 // 0x50: Line Length threshold
+00000450 // 0x54: Band-Power Ratio threshold
+00000120 // 0x58: Spectral Entropy threshold
+00040008 // 0x5C: 4-of-8 channel voter threshold
+
+// @00000060: Boot Code Continued / Padding
+00000013 // 0x60: nop
+00000013 // 0x64: nop
+00000013 // 0x68: nop
+deadbeef // 0x6C: Verification Sentinel Word

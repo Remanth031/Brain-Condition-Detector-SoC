@@ -1,0 +1,33 @@
+// ==============================================================================
+// Brain Condition Detector (BCD) SoC - LPDDR4 Frame Buffer Load File (lpddr.hex)
+// Base Address: 0x8000_0000 (Loaded into axi_slave_lpddr via $readmemh)
+// Contains Swin Transformer Attention Weights, Position Biases & CT Test Slices
+// ==============================================================================
+
+// Swin Transformer Accelerator Header
+5357494e // 0x00: ASCII "SWIN"
+00000004 // 0x04: Window Size M = 4 (4x4 token patches)
+00000002 // 0x08: Number of Attention Heads = 2
+00000020 // 0x0C: Embedding Dimension C = 32
+
+// Query, Key, Value (Q, K, V) Projection Matrix Slices (Fixed-Point 8.8)
+00400030 // 0x10: W_q[0,0..1]
+00200050 // 0x14: W_q[0,2..3]
+ffc0ffb0 // 0x18: W_k[0,0..1]
+ffd0ffa0 // 0x1C: W_k[0,2..3]
+00380048 // 0x20: W_v[0,0..1]
+00280058 // 0x24: W_v[0,2..3]
+
+// Relative Position Bias Table (2M-1 x 2M-1 = 7x7 Table)
+00080006 // 0x28: RelPosBias[0..1]
+00040002 // 0x2C: RelPosBias[2..3]
+0000fffe // 0x30: RelPosBias[4..5]
+fffcfffa // 0x34: RelPosBias[6..7]
+
+// MRI / CT Imaging Ingest Sample Slice (256x256 16-bit Grayscale Header)
+494d4147 // 0x38: ASCII "IMAG"
+01000100 // 0x3C: Dimensions: 256 x 256 pixels
+00000400 // 0x40: Window Center: 1024 (Brain Tissue Hounsfield Unit)
+00000050 // 0x44: Window Width: 80
+0020001e // 0x48: Sample Pixel [0,0..1]
+00220025 // 0x4C: Sample Pixel [0,2..3]

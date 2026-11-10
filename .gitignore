@@ -1,0 +1,71 @@
+# ==============================================================================
+# Git Ignore Configuration - Brain Condition Detector (BCD) SoC Repository
+# ==============================================================================
+
+# Compiled simulation and test binaries
+*.dll
+*.exe
+*.pdb
+*.obj
+*.o
+*.so
+*.dylib
+*.out
+
+# Electronic Design Automation (EDA) & FPGA Synthesis (Vivado / Synopsys / Cadence / Verilator)
+.Xil/
+sim_build/
+build_synth/
+obj_dir/
+*.jou
+*.log
+*.str
+*.pb
+*.dmp
+*.wdb
+*.bit
+*.dcp
+*.ltx
+xsim.dir/
+work/
+transcript
+vsim.wlf
+*.vcd
+*.fsdb
+*.vpd
+*.saif
+synthesized/
+runs/
+reports/
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# IDE & Editor Metadata
+.vscode/
+.idea/
+*.suo
+*.user
+*.swp
+*~
+
+# Operating System & Cloud Drive metadata
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.directory
+
+# Compressed Archives & Large Bundles
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar

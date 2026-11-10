@@ -1,0 +1,19 @@
+name: Verible formatter
+
+on:
+  pull_request:
+
+jobs:
+  format-review:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: antmicro/verible-formatter-action@update-upload-action
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reviewdog_reporter: 'local'
+          fail_on_formatting_suggestions: 'false'

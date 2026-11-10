@@ -1,0 +1,20 @@
+===============================================================================
+   BRAIN CONDITION DETECTOR (BCD) SoC - AXI4 VERIFICATION REPORT               
+===============================================================================
+Timestamp: 2026-11-08 16:28:53
+Total Testcases Executed : 648
+Total Passed             : 648
+Total Failed             : 0
+Pass Rate                : 100.00%
+-------------------------------------------------------------------------------
+Category Breakdown:
+ • 1. Single-Beat Memory Access             :  60/ 60 Passed (100.00%)
+ • 2. Burst Transfers (2 to 256 beats)      : 100/100 Passed (100.00%)
+ • 3. Multi-Master QoS Arbitration          :  90/ 90 Passed (100.00%)
+ • 4. WSTRB Byte-Enable Strobes             :  70/ 70 Passed (100.00%)
+ • 5. Unmapped Address DECERR               :  50/ 50 Passed (100.00%)
+ • 6. Boot ROM Write Protection (SLVERR)    :  40/ 40 Passed (100.00%)
+ • 7. RTL Threshold Engine CSRs             : 123/123 Passed (100.00%)
+ • 8. AXI Firewall Security                 :  70/ 70 Passed (100.00%)
+ • 9. Full-Duplex Traffic Stress            :  45/ 45 Passed (100.00%)
+===============================================================================

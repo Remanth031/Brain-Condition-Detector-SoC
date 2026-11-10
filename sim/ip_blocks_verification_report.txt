@@ -1,0 +1,24 @@
+===============================================================================
+   BRAIN CONDITION DETECTOR (BCD) SoC - IP BLOCKS VERIFICATION REPORT          
+===============================================================================
+Timestamp: 2026-11-08 17:08:05
+Total Testcases Executed : 910
+Total Passed             : 910
+Total Failed             : 0
+Pass Rate                : 100.00%
+-------------------------------------------------------------------------------
+Category Breakdown:
+ • 1. ADC Deserializer & AXIS Framing       : 120/120 Passed (100.00%)
+ • 2. DSP Async FIFO with CDC               :  60/ 60 Passed (100.00%)
+ • 3. Digital Filter Bank (Notch/FIR)       :  60/ 60 Passed (100.00%)
+ • 4. Streaming Feature Extractor           : 180/180 Passed (100.00%)
+ • 5. AXIS Broadcaster & Skid Buffers       :  60/ 60 Passed (100.00%)
+ • 6. Normal Path Rice Compression          :  50/ 50 Passed (100.00%)
+ • 7. Edge-AI NPU Systolic MACs             :  70/ 70 Passed (100.00%)
+ • 8. Spectrogram STFT Generator            :  50/ 50 Passed (100.00%)
+ • 9. Swin Transformer SW-MSA               :  70/ 70 Passed (100.00%)
+ • 10. Imaging Ingest MRI/CT Slices         :  50/ 50 Passed (100.00%)
+ • 11. Output Fusion & Clinical Report      :  50/ 50 Passed (100.00%)
+ • 12. PMU Power-Gating Sequencer           :  30/ 30 Passed (100.00%)
+ • 13. AES-256 & SHA-256 Security           :  60/ 60 Passed (100.00%)
+===============================================================================
