@@ -73,7 +73,7 @@ flowchart TD
     NPU -->|Master M2 DMA| XBAR
     SWIN -->|Master M3 DMA| XBAR
     COMPRESS -->|Master M4 DMA| XBAR
-    VEER -->|Master M0 (IFU/LSU Mux)| XBAR
+    VEER -->|Master M0 IFU-LSU Mux| XBAR
 
     XBAR --> ROM
     XBAR --> SRAM
@@ -86,8 +86,8 @@ flowchart TD
     SWIN --> FUSION
     THRESH_ENG --> FUSION
     FUSION --> AES
-    PMU -.->|Power-Gate / Clock-Gate Control| AI_ACCELERATORS
-    PMU -.->|Power-Gate / Clock-Gate Control| DSP_TIER
+    PMU -.->|Power and Clock Gating| AI_ACCELERATORS
+    PMU -.->|Power and Clock Gating| DSP_TIER
 ```
 
 ---
