@@ -58,13 +58,13 @@ if { [llength $rtl_files] > 0 } {
     exit 1
 }
 
-# Read Western Digital / CHIPS Alliance VeeR EL2 Subsystem
-set veer_files [glob -nocomplain "$WORK_DIR/third_party/Cores-VeeR-EL2/design/*.sv"]
-set veer_lib   [glob -nocomplain "$WORK_DIR/third_party/Cores-VeeR-EL2/design/lib/*.sv"]
+# Read Western Digital / CHIPS Alliance VeeR EL2 Subsystem from Cores-VeeR-EL2-main
+set veer_files [glob -nocomplain "$WORK_DIR/Cores-VeeR-EL2-main/design/*.sv"]
+set veer_lib   [glob -nocomplain "$WORK_DIR/Cores-VeeR-EL2-main/design/lib/*.sv"]
 if { [llength $veer_files] > 0 } {
     read_verilog -sv $veer_files
     read_verilog -sv $veer_lib
-    puts "Loaded VeeR EL2 core subsystem files."
+    puts "Loaded VeeR EL2 core subsystem files from Cores-VeeR-EL2-main."
 }
 
 # ------------------------------------------------------------------------------

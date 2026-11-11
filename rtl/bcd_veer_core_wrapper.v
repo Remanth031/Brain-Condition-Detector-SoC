@@ -3,7 +3,7 @@
 // Wraps Real CHIPS Alliance / Western Digital Cores-VeeR-EL2 (RV32IMC Dual-Issue Core)
 // 
 // Features & Connections:
-// 1. Instantiates actual el2_veer_wrapper from third_party/Cores-VeeR-EL2/design/
+// 1. Instantiates actual el2_veer_wrapper from Cores-VeeR-EL2-main/design/
 // 2. Connects VeeR's real IFU (Instruction Fetch) and LSU (Load/Store) AXI4 buses
 //    to the unified AXI4 Master M0 interface connected to the 6x6 Crossbar.
 // 3. Hardwires Boot Reset Vector rst_vec to 31'b0 (0x0000_0000 -> Boot ROM).
@@ -175,7 +175,7 @@ module bcd_veer_core_wrapper #(
     // 4. Instantiation of Real VeeR EL2 RTL / Synthesizable Co-Model
     // =========================================================================
 `ifdef USE_REAL_VEER_CORE
-    // Real SystemVerilog Core Wrapper from third_party/Cores-VeeR-EL2/design/
+    // Real SystemVerilog Core Wrapper from Cores-VeeR-EL2-main/design/el2_veer_wrapper.sv
     el2_veer_wrapper u_veer_el2 (
         .clk                     (clk),
         .rst_l                   (rst_n),

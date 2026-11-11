@@ -24,9 +24,9 @@ read_verilog -sv "$WORK_DIR/rtl/bcd_soc_pkg.vh"
 # Read all RTL Source Files
 read_verilog [glob "$WORK_DIR/rtl/*.v"]
 
-# Read VeeR EL2 Subsystem
-read_verilog -sv [glob "$WORK_DIR/third_party/Cores-VeeR-EL2/design/*.sv"]
-read_verilog -sv [glob "$WORK_DIR/third_party/Cores-VeeR-EL2/design/lib/*.sv"]
+# Read VeeR EL2 Subsystem from Cores-VeeR-EL2-main
+read_verilog -sv [glob "$WORK_DIR/Cores-VeeR-EL2-main/design/*.sv"]
+read_verilog -sv [glob "$WORK_DIR/Cores-VeeR-EL2-main/design/lib/*.sv"]
 
 # Set Top Module
 set_property top bcd_soc_full_top [current_fileset]

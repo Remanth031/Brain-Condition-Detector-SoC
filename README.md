@@ -1,7 +1,7 @@
 # Brain Condition Detector (BCD) System-on-Chip (SoC)
 
 [![UVM 1.2 Compliant](https://img.shields.io/badge/UVM-1.2_Compliant-00599C?style=for-the-badge&logo=cplusplus)](uvm/)
-[![RISC-V VeeR EL2](https://img.shields.io/badge/CPU-VeeR_EL2_RV32IMC-brightgreen?style=for-the-badge&logo=riscv)](third_party/Cores-VeeR-EL2/)
+[![RISC-V VeeR EL2](https://img.shields.io/badge/CPU-VeeR_EL2_RV32IMC-brightgreen?style=for-the-badge&logo=riscv)](Cores-VeeR-EL2-main/)
 [![Dual Edge-AI Accelerators](https://img.shields.io/badge/AI_Engines-EEGNet_NPU_%2B_Swin_Transformer-blueviolet?style=for-the-badge)](rtl/)
 [![Verification Passed](https://img.shields.io/badge/UVM_Regression-17%2C400%20%2F%2017%2C400%20Passed-success?style=for-the-badge)](sim/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-orange?style=for-the-badge)](LICENSE)
@@ -439,8 +439,7 @@ brain_project/
 │   ├── git_push_helper.ps1         # Git repository initialization and push script
 │   └── axi_interconnect_wrap.py    # Interconnect verification helper
 │
-└── third_party/                    # Submodules & External Cores
-    └── Cores-VeeR-EL2/             # Western Digital / CHIPS Alliance RISC-V Core RTL
+└── Cores-VeeR-EL2-main/            # Western Digital / CHIPS Alliance RISC-V Core RTL
 ```
 
 ---
